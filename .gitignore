@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# assistant and scratch tools
+.agent/
+.agents/
+.claude/
+scratch/
+skills-lock.json

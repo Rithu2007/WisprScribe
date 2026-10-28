@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --void: #050505;
+  --black-soft: #0B0D0D;
+  --ink-light: #F5F2E8;
+  --muted-light: #A8AAA3;
+  --teal-glow: #0A8F7A;
+  --teal-bright: #39D7B5;
+  --lavender-glow: #CFA7FF;
+  --confirm-amber: #E2A83B;
+  --success-green: #55D69A;
+
+  --ink: #17201F;
+  --deep-teal: #034F46;
+  --warm-paper: #FFFFEB;
+  --soft-sage: #E8E8D7;
+  --lavender: #F0D7FF;
+  --muted-stone: #85857C;
+
+  /* Surfaces & Functional Tokens */
+  --surface-base: #050505;
+  --surface-card: #0B0D0D;
+  --surface-muted: #141717;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: #0A8F7A;
+  --text-main: #F5F2E8;
+  --text-muted: #A8AAA3;
+  --text-faint: #636662;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --color-void: #050505;
+  --color-black-soft: #0B0D0D;
+  --color-ink-light: #F5F2E8;
+  --color-muted-light: #A8AAA3;
+  --color-teal-glow: #0A8F7A;
+  --color-teal-bright: #39D7B5;
+  --color-lavender-glow: #CFA7FF;
+  --color-confirm-amber: #E2A83B;
+  --color-success-green: #55D69A;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink: #17201F;
+  --color-deep-teal: #034F46;
+  --color-warm-paper: #FFFFEB;
+  --color-soft-sage: #E8E8D7;
+  --color-lavender: #F0D7FF;
+  --color-muted-stone: #85857C;
+
+  --color-surface-base: #FFFFEB;
+  --color-surface-card: #FFFFFF;
+  --color-surface-muted: #E8E8D7;
+  --color-border-subtle: #D8D8C5;
+  --color-border-strong: #034F46;
+  --color-text-main: #17201F;
+  --color-text-muted: #85857C;
+  --color-text-faint: #A3A39A;
+
+  --font-serif: var(--font-eb-garamond), "EB Garamond", Georgia, serif;
+  --font-sans: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --font-mono: var(--font-figtree), monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  color: var(--ink-light);
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-garamond {
+  font-family: var(--font-eb-garamond), "EB Garamond", Georgia, serif !important;
+}
+
+.font-figtree {
+  font-family: var(--font-figtree), "Figtree", system-ui, sans-serif !important;
+}
+
+/* Focus indicators */
+:focus-visible {
+  outline: 2px solid #A855F7;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Hide scrollbar for clean horizontal scrolls */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  header,
+  nav,
+  #hero-section,
+  #speech-flow-section,
+  #workflow-showcase,
+  .no-print {
+    display: none !important;
+  }
+  #dashboard {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    display: block !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+}
+
+/* Style applied to the WisprScribe main project name */
+.wisprscribe-title,
+.verba-title,
+.eventscribe-title {
+  font-family: var(--font-josefin-sans), "Josefin Sans", sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.wisprscribe-title .wisprscribe-teal,
+.verba-title .verba-teal,
+.eventscribe-title .eventscribe-teal {
+  color: #00A3A6; /* Exact teal accent */
+  text-shadow: 0 0 28px rgba(0, 163, 166, 0.55), 0 0 8px rgba(0, 163, 166, 0.35);
 }
