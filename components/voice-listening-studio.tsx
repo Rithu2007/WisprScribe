@@ -552,23 +552,10 @@ export const VoiceListeningStudio: React.FC<VoiceListeningStudioProps> = ({
               </p>
             </div>
 
-            {/* Active Noise Cancellation Status Badge & Settings Link */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2 text-xs">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8E8D7]/80 text-[#034F46] border border-[#D8D8C5] text-[11px] font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#237A57]" />
-                <span>Active Voice Cancellation: Ready (85Hz Cut + 7.8kHz Filter)</span>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setPermissionError(null);
-                  setIsPermissionModalOpen(true);
-                }}
-                className="inline-flex items-center gap-1 text-[11px] text-[#85857C] hover:text-[#034F46] transition-colors cursor-pointer underline"
-              >
-                <span>Permissions &amp; DSP info</span>
-              </button>
+            {/* Noise Cancellation Single-Line Indicator */}
+            <div className="flex items-center justify-center gap-2 pt-1 text-xs text-[#85857C]">
+              <span className="w-2 h-2 rounded-full bg-[#237A57]" />
+              <span>Noise cancellation active</span>
             </div>
 
             <div className="pt-2">
@@ -857,17 +844,9 @@ export const VoiceListeningStudio: React.FC<VoiceListeningStudioProps> = ({
       </div>
 
       {/* Collegiate Guidance Note */}
-      <div className="p-4 rounded-xl bg-[#E8E8D7]/40 border border-[#D8D8C5] text-xs text-[#5A6361] flex items-start gap-3">
-        <ShieldCheck className="w-4 h-4 text-[#237A57] shrink-0 mt-0.5" />
-        <div className="space-y-1">
-          <strong className="text-[#034F46] font-semibold block">
-            Real-World Voice Cancellation &amp; Collegiate Trust:
-          </strong>
-          <p className="leading-relaxed">
-            WisprScribe actively cuts background acoustic noise (hvac, fans, typing) using real-time Web Audio DSP filters and our adaptive noise gate. Unmentioned details are never fabricated—if a field was not spoken, it will be highlighted for confirmation in the next review step.
-          </p>
-        </div>
-      </div>
+      <p className="text-center text-xs text-[#85857C] pt-1">
+        Zero-hallucination guarantee: unmentioned details remain unconfirmed for your review.
+      </p>
     </div>
   );
 };
